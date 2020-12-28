@@ -21,5 +21,18 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
 }
 ```
 
+**To Run without Docker**
 
+```
+> mvn clean install
+> java -jar target/spring-h2-demo.jar
+```
+
+**To Run with Docker**
+```
+> mvn clean install
+> docker build -t springboot-h2-sample
+> docker run -d -p 8080:8080 springboot-h2-sample
+
+> docker stop <image-name>
 ```
