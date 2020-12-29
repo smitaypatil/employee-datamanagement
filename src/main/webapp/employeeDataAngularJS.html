@@ -53,7 +53,7 @@
                 $scope.deleteEmployee = function(employee) {
                     $http({
                         method : 'DELETE',
-                        url : '/employee/' + employee.id
+                        url : '/deleteEmployee/' + employee.id
                     }).then(_success, _error);
                 };
  
@@ -173,7 +173,7 @@ td, th {
 </style>
 <head>
 <body ng-app="EmployeeManagement" ng-controller="EmployeeController">
-	<h1>Employee Mart</h1>
+	<h1>Employee Data Management</h1>
 	<form ng-submit="submitEmployee()">
 		<table>
 
