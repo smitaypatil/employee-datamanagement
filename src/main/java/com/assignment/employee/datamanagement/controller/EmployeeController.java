@@ -42,8 +42,22 @@ public class EmployeeController {
 		return updatedEmployee;
 	}
 
-	@DeleteMapping(value = "/employee")
+	/*@DeleteMapping(value = "/employee")
 	public Map<String, String> deleteEmployee(@RequestParam long id){
+		Map<String, String> status = new HashMap<>();
+		Optional<Employee> employee = employeeRepository.findById(id);
+		if(employee.isPresent()) {
+			employeeRepository.delete(employee.get());
+			status.put("Status", "Employee deleted successfully");
+		}
+		else {
+			status.put("Status", "Employee not exist");
+		}
+		return status;
+	}*/
+
+	@DeleteMapping(value = "/deleteEmployee/{id}", headers = "Accept=application/json")
+	public Map<String, String> deleteEmployee(@PathVariable("id") long id) {
 		Map<String, String> status = new HashMap<>();
 		Optional<Employee> employee = employeeRepository.findById(id);
 		if(employee.isPresent()) {
@@ -74,4 +88,6 @@ public class EmployeeController {
 		employeeRepository.deleteAll();
 		return "SUCCESS";
 	}
+
+
 }

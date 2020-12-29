@@ -28,8 +28,10 @@ public class Employee   {
   @JsonProperty("lastName")
   private String lastName = null;
 
-  public Employee id(Long id) {
+  public Employee id(Long id,String firstName,String lastName) {
     this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
     return this;
   }
 
