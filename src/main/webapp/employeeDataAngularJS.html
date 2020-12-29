@@ -14,7 +14,6 @@
                
                 $scope.employees = [];
                 $scope.employeeForm = {
-                    id : -1,
                     firstName : "",
                     lastName : ""
                 };
@@ -29,16 +28,11 @@
          
                     var method = "";
                     var url = "";
-                    if ($scope.employeeForm.id == -1) {
-                        //Id is absent in form data, it is create new employee operation
-                        method = "POST";
-                        url = '/employee';
-                    } else {
+
                         //Id is present in form data, it is edit employee operation
                         method = "PUT";
                         url = '/employee';
-                    }
-         
+
                     $http({
                         method : method,
                         url : url,
@@ -89,7 +83,7 @@
          
                 //Clear the form
                 function _clearFormData() {
-                    $scope.employeeForm.id = -1;
+                   $scope.employeeForm.id = '';
                     $scope.employeeForm.firstName = "";
                     $scope.employeeForm.lastName = "";
                 
